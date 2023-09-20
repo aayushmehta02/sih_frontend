@@ -43,6 +43,8 @@ body {
   height: 100%;
 }
 
+/* set the font size of text in the input while typing to 15px */
+
 input[type=text],input[type=password] {
   width: 250px;
   padding: 10px 10px;
@@ -51,7 +53,7 @@ input[type=text],input[type=password] {
   border: none;
   border-radius: 100px;
   background-color: #EDEDED;
-  font-size: 12px;
+  font-size: 15px;
   color: #5C5C5C;
   font-family: 'montserrat', sans-serif;
   height: 50px;
@@ -60,7 +62,7 @@ input[type=text],input[type=password] {
 }
 
 input[type=text]:focus, input[type=password]:focus {
-  font-size: 12px;
+  font-size: 15px;
   font-family: 'montserrat', sans-serif;
   outline: none;
   font-size: 12px;
@@ -83,19 +85,19 @@ button{
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   border-radius: 100px;
   font-family: 'montserrat', sans-serif;
 }
 
 p{
-  font-size: 12px;
+  font-size: 15px;
   color: #6C757D;
   font-family: 'montserrat', sans-serif;
 }
 a{
-  font-size: 12px;
+  font-size: 15px;
   color: #6C757D;
   font-family: 'montserrat', sans-serif;
   text-decoration: none;
