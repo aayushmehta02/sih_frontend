@@ -31,9 +31,15 @@ body {
   background-color: #F3D0BA;
 }
 
-.centered {
+.left_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
   text-align: center;
- 
+  height: 60vh;
   
  
 }
@@ -87,8 +93,12 @@ button{
   font-weight: bold;
   border-radius: 100px;
   font-family: 'montserrat', sans-serif;
+  cursor: pointer;
+  
 }
-
+button:hover{
+  border:1px solid #1E1E1E;
+}
 p{
   font-size: 12px;
   color: #6C757D;
@@ -222,11 +232,26 @@ p.by a{
 
 .sliderSwitches{
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   list-style: none;
   text-align: center;
+}
+::placeholder{
+  color: black;
+  font-weight: 500;
+  font-size: large;
+}
+
+.far{
+  cursor: pointer;
+}
+
+input{
+  color: black;
+  font-size: medium;
 }

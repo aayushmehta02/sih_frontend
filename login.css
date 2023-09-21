@@ -56,7 +56,7 @@
     align-content: center;
     justify-content: space-around;
     justify-items: center;
-    height: 55%;
+    height: 40%;
     width: 80%;
 }
 
@@ -112,3 +112,6 @@ button{
 ::placeholder{
     color: black;
 }
+button:hover{
+    border:1px solid #1E1E1E;
+  }
