@@ -243,6 +243,11 @@ p.by a{
   list-style: none;
   text-align: center;
 }
+
+.sliderSwitches span{
+  width: 10px;
+}
+
 ::placeholder{
   color: black;
   font-weight: 500;
