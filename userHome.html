@@ -10,20 +10,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
   <title>User Home</title>
 </head>
 
 <body>
-  <nav>
+  <nav class="sticky">
     <ul class="nav-links">
-      <li><a href="#">Session</a></li>
-      <li><a href="#">Feel Good</a></li>
-      <li><a href="#">Journal</a></li>
-      <li><a href="#">Breathe Timer</a></li>
-      <li><a href="#">Community</a></li>
+      <li><a href="#session">Session</a></li>
+      <li><a href="#music">Feel Good Music</a></li>
+      <li><a href="#journal">Journal</a></li>
+      <li><a href="#timer">Breathe Timer</a></li>
+      <li><a href="#community">Community</a></li>
+      <a href=""><i class="fa-regular fa-user" style="color: #000000;"></i></a>
     </ul>
   </nav>
-  <section class="session">
+  <section class="session" id="session">
     <div class="row">
       <div class="column">
         <p>Your next session is scheduled at 10:00 AM tomorrow</p>
@@ -32,7 +35,7 @@
       <img src="schedule.png" alt="">
     </div>
   </section>
-  <section class="feelGood">
+  <section class="feelGood" id="music">
     <div class="row">
       <div class="column">
         <img src="feel good.jpg" alt="">
@@ -45,7 +48,7 @@
         pick-me-up, let the music play and feel the positive impact it has on your mental state.</p>
     </div>
   </section>
-  <section class="journal">
+  <section class="journal" id="journal">
     <div class="column">
       <div class="row">
         <p>Journaling is a powerful tool for maintaining mental health. It provides a private space for self-expression
@@ -63,7 +66,7 @@
       </div>
     </div>
   </section>
-  <section class="breatheTimer">
+  <section class="breatheTimer" id="timer">
     <div class="row">
       <img src="breathe.png" alt="">
       <p>
@@ -80,7 +83,7 @@
       </div>
     </div>
   </section>
-  <section class="community">
+  <section class="community" id="community">
     <div class="row">
       <div class="column">
         <p>Connecting with a community of people is a source of support, shared experiences, and a sense of belonging.
