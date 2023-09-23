@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.full_body{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    font-family: 'montserrat', sans-serif;
+}
+.left_coloumn{
+    width: 45%;
+    background-color: rgb(243, 208, 186);
+    position: relative;
+}
+.right_coloumn{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+    justify-items: center;
+
+
+}
+.login_img{
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    right: 20;
+}
+.password_wrapper{
+    position: relative;
+}
+.far, .fa-eye{
+   position: absolute;
+   top: 35%;
+   left: 85%;
+    width: 90%;
+    font-size: small;
+    cursor: pointer;
+  
+}
+.far:active{
+    color: grey;
+}
+.login_inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    justify-items: center;
+    height: 40%;
+    width: 80%;
+}
+
+
+.password{
+    width: 100%  ;
+    border-radius: 22px;
+    background: #EDEDED;
+}
+.email{
+    height: 300px;
+}
+.email, .password{
+    width: 350px;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 100px;
+    background-color: #EDEDED;
+    font-size: 15px;
+    color: #000000;
+    font-family: 'montserrat', sans-serif;
+    height: 55px;
+}
+
+button{
+    background-color: #DE8E16;
+    border: none;
+    width: 250px  ;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 100px;
+    font-family: 'montserrat', sans-serif;
+    cursor: pointer;
+    height: 50px;
+}
+.welcome{
+    font-family: 'montserrat', sans-serif;
+    font-size: xx-large;
+    color: rgba(108, 117, 125, 1);
+}
+.new_to{
+    color: rgba(108, 117, 125, 1);
+    text-decoration: none;
+    font-size: medium;
+}
+::placeholder{
+    color: black;
+}
+button:hover{
+    border:1px solid #1E1E1E;
+  }

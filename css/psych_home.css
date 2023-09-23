@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navigation{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+    background-color: #F3D0BA;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+nav{
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+a{
+    color: black;
+    font-family: "Montserrat";
+    text-decoration: none;
+    font-size: x-large;
+}
+
+.session{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    height: 45vh;
+    column-gap: 35px;
+    color: #484F55;
+    font-family: Montserrat;
+    
+    
+
+}
+
+.session_wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    padding-top: 10%;
+    
+}
+
+.img_ur_session{
+    width: 70%;
+    height: 70%;
+}
+
+.session_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    justify-items: center;
+    height: 15vh;
+    font-size: xx-large;
+    width: 45%;
+    
+}
+.session_text p{
+    padding-bottom: 5%;
+}
+button{
+    width: 25vw;
+    height: 100%;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    background: #F8AA36;
+    color: #484F55;
+    font-size: xx-large;
+    font-family: "montserrat",sans-serif;
+    font-weight: 500;
+    cursor: pointer;    
+}
+.latest_today{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    font-family: "Montserrat"; 
+    padding-bottom: 5%;
+}
+.latest_today_text{
+    padding-bottom: 6%;
+}
+.news_wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 70%;
+    background-color: #DDD;
+    height: 40vh;
+    
+}
+.news{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 5% 5% 5% 5%;
+    font-family: "Montserrat";    
+
+}
+
+.news:nth-child(2),
+.news:nth-child(4) {
+ 
+  border-right: none;
+}
+.news:nth-child(3),
+.news:nth-child(4){
+    border-bottom: none;
+}
+.news:nth-child(1),
+.news:nth-child(2) {
+  border-top: none; /* Remove top border for cells 1 and 2 */
+}
+.news:nth-child(1),
+.news:nth-child(3){
+    border-left: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
