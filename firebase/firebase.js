@@ -24,6 +24,8 @@ var selectedUserType = '';
 var doctors = [];
 var users = [];
 
+var currentChatId = [];
+
 
 
 function registerUser(email, password, name, gender, userType) {
@@ -224,14 +226,36 @@ function addUserToDatabse(user) {
       }
       window.localStorage.setItem('uid', JSON.stringify(storeData));
 
-      if (user.type === 'doctor') window.location.href = './doctorHome.html';
+      if (user.type === 'Psychiatrist') window.location.href = './psych_home.html';
       else window.location.href = './userHome.html';
     })
     .catch((error) => {
       console.error("Error writing document: ", error);
     });
-  o
+
 }
+
+function getCurrentIds() {
+  const user = JSON.parse(window.localStorage.getItem('uid'));
+  const db = getFirestore();
+  const docRef = doc(db, "users", user.uid);
+  getDoc(docRef)
+    .then((doc) => {
+      if (doc.exists()) {
+        console.log("Document data:", doc.data());
+        currentChatId = doc.data().patientsList;
+        console.log('currentChatId', currentChatId);
+      } else {
+        console.log("No such document!");
+        return null;
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
+      return null;
+    });
+}
+
 
 function getAllUsers() {
   console.log('hello');
@@ -296,5 +320,19 @@ if (window.location.href.includes('selectDoc.html')) {
     const user = JSON.parse(window.localStorage.getItem('uid'));
     console.log('user', user);
     getDoctors();
+  });
+}
+
+
+if (window.location.href.includes('psych_chat')) {
+  const user = JSON.parse(window.localStorage.getItem('uid'));
+  console.log('user', user)
+
+  getCurrentIds();
+  readChatRoomData(user.chatId);
+  const sendMessage = document.getElementById('sendMessage');
+  sendMessage.addEventListener('click', function () {
+    const message = document.getElementById('message').value;
+    addMessageToRoom(user.chatId, user.uid, message);
   });
 }
