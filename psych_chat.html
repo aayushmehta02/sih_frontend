@@ -154,7 +154,7 @@
             const notesContainer = document.getElementById('notes-container');
             const note = document.createElement('div');
             note.className = 'note';
-            note.innerHTML = `<textarea placeholder="Write your note here"></textarea>
+            note.innerHTML = `<textarea placeholder="Write your note here" class="text_area" rows="10"></textarea>
                               <button onclick="deleteNote(this)">Delete</button>`;
             notesContainer.appendChild(note);
         }
