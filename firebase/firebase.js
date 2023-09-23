@@ -2,10 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebas
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
 import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-import { getFunctions } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-functions.js";
-import { getStorage } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
 // Initialize Firebase with your configuration
 const firebaseConfig = {
@@ -23,10 +21,9 @@ const app = initializeApp(firebaseConfig);
 var selectedGender = '';
 var selectedUserType = '';
 
-// const genderSelect = document.getElementById('gender');
-// const userSelect = document.getElementById('userType');
+var doctors = [];
+var users = [];
 
-const createRoom = document.getElementById('createRoom');
 
 
 function registerUser(email, password, name, gender, userType) {
@@ -38,6 +35,7 @@ function registerUser(email, password, name, gender, userType) {
       user.name = name;
       user.gender = gender
       user.uid = user.uid;
+      if (user.type === 'doctor') user.patientsList = [];
       console.log('user', user);
       addUserToDatabse(user);
     })
@@ -45,6 +43,82 @@ function registerUser(email, password, name, gender, userType) {
       console.log('error', error);
     });
 
+}
+
+// write a function to return a list of users with as a list of DocumentSnapshop where type == Psychiatrist
+async function getDoctors() {
+  console.log('hello');
+  const db = getFirestore();
+  const usersCol = collection(db, 'users');
+  const usersSnapshot = getDocs(usersCol);
+
+  const user = JSON.parse(window.localStorage.getItem('uid'));
+
+  usersSnapshot.then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      if (doc.data().type === 'Psychiatrist')
+        doctors.push(doc.data());
+    });
+    getUsers().then(() => {
+      removeDoctor();
+      var doc = getDoctor();
+      console.log('user.uid', user.uid);
+      console.log('doc.uid', doc.uid);
+      createChatRoom(user.uid, doc.uid).then(() => {
+        user.chatId = user.uid + '-' + doc.uid;
+        window.localStorage.setItem('uid', JSON.stringify(user));
+        updateUser(user);
+        window.location.href = './userChat.html';
+      });
+    });
+  });
+}
+
+// write a function to return a list of users with as a list of DocumentSnapshop where type == user
+async function getUsers() {
+  const db = getFirestore();
+  const usersCol = collection(db, 'users');
+  const usersSnapshot = getDocs(usersCol);
+  usersSnapshot.then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      if (doc.data().type === 'user')
+        users.push(doc.data());
+    });
+  });
+}
+
+// remove the doctor from the list of doctors whos number of patients is greter than total number of docs / total number of users
+function removeDoctor() {
+  for (var i = 0; i < doctors.length; i++) {
+    if (doctors[i].length > (users.length / doctors.length)) {
+      doctors.splice(i, 1);
+    }
+  }
+}
+
+// get a doc1tor randomly from the list of doctors
+function getDoctor() {
+  var randomIndex = Math.floor(Math.random() * doctors.length);
+  console.log('doctor', doctors)
+  return doctors[randomIndex];
+}
+
+async function updateUser(user) {
+  const db = getFirestore();
+  const docRef = doc(db, "users", user.uid);
+  await updateDoctor(docRef, user.chatId)
+    .then(() => {
+      console.log("Document successfully updated!");
+    })
+    .catch((error) => {
+      console.error("Error updating document: ", error);
+    });
+}
+
+async function updateDoctor(docRef, chatId) {
+  await updateDoc(docRef, {
+    patientsList: arrayUnion(chatId),
+  });
 }
 
 
@@ -73,9 +147,9 @@ function signInUser(email, password) {
     });
 }
 
-function createChatRoom(userUid, docUid) {
+async function createChatRoom(userUid, docUid) {
   const db = getDatabase();
-  set(ref(db, 'chatRooms/' + userUid + '-' + docUid), {
+  await set(ref(db, 'chatRooms/' + userUid + '-' + docUid), {
     docUid: docUid,
     userUid: userUid,
   });
@@ -84,8 +158,8 @@ function createChatRoom(userUid, docUid) {
 // write a function to contnuously read data from realtime database
 function readChatRoomData(userUid) {
   const db = getDatabase();
-  const starCountRef = ref(db, 'chatRooms/' + userUid);
-  onValue(starCountRef, (snapshot) => {
+  const chatRoomRef = ref(db, 'chatRooms/' + userUid);
+  onValue(chatRoomRef, (snapshot) => {
     const data = snapshot.val();
     console.log('data', data);
   });
@@ -126,7 +200,6 @@ function addUserToDatabse(user) {
     email: user.email,
     type: user.type,
     gender: user.gender,
-    userType: user.type,
     uid: user.uid,
   })
     .then(() => {
@@ -138,7 +211,6 @@ function addUserToDatabse(user) {
         email: user.email,
         type: user.type,
         gender: user.gender,
-        userType: user.type,
         uid: user.uid,
       }).then(() => { });
 
@@ -147,6 +219,7 @@ function addUserToDatabse(user) {
         email: user.email,
         type: user.type,
         gender: user.gender,
+        uid: user.uid,
       }
       window.localStorage.setItem('uid', JSON.stringify(storeData));
 
@@ -156,7 +229,7 @@ function addUserToDatabse(user) {
     .catch((error) => {
       console.error("Error writing document: ", error);
     });
-
+  o
 }
 
 function getAllUsers() {
@@ -205,11 +278,22 @@ if (window.location.href.includes('login.html')) {
 
 if (window.location.href.includes('userChat.html')) {
   const user = JSON.parse(window.localStorage.getItem('uid'));
-  readChatRoomData('doc1-' + user.uid);
+  console.log('user', user)
+  readChatRoomData(user.chatId);
   const sendMessage = document.getElementById('sendMessage');
   sendMessage.addEventListener('click', function () {
     const message = document.getElementById('message').value;
-    addMessageToRoom('user1', user.uid, message);
+    addMessageToRoom(user.chatId, user.uid, message);
   });
 }
 
+
+if (window.location.href.includes('selectDoc.html')) {
+  const assignDoc = document.getElementById('assignDoc');
+  assignDoc.addEventListener('click', function () {
+    console.log('assignDoc');
+    const user = JSON.parse(window.localStorage.getItem('uid'));
+    console.log('user', user);
+    getDoctors();
+  });
+}

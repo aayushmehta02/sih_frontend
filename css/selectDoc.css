@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+section p{
+  width: 25vw;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-family: "montserrat",sans-serif;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #F3D0BA;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 20px 20px;
+    display: block;
+    font-family: "montserrat",sans-serif;
+}
+
+
+.docs_card_wrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 5%;
+    padding: 5%;
+}
+
+.docs_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    background-color: #f5e2d6;
+    height: 30vh;
+    
+}
+

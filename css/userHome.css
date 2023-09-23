@@ -1,0 +1,189 @@
+body{
+    margin: 0;
+    padding: 0;
+  font-family: "montserrat",sans-serif;
+    background: #ECECF6;
+    
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+section p{
+  width: 25vw;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-family: "montserrat",sans-serif;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #F3D0BA;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 20px 20px;
+    display: block;
+    font-family: "montserrat",sans-serif;
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-family: "montserrat",sans-serif;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.column{
+    text-decoration: none;
+    color: #484F55;
+    font-size: 20px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "montserrat",sans-serif;
+
+}
+
+.session p{
+  width: 25vw;
+  font-size: 30px;
+}
+
+button{
+    width: 25vw;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    background: #F8AA36;
+    color: #484F55;
+    font-size: 20px;
+    font-family: "montserrat",sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+p{
+  font-size: 25px;
+    font-family: "montserrat",sans-serif;
+    color: #484F55;
+    font-weight: 300;
+}
+
+.feelGood p{
+  width: 50vw;  
+}
+
+.feelGood img{
+max-height: 25vh;
+max-width: 25vh;
+}
+
+.feelGood button{
+  width: 20vw;
+}
+
+
+.journal p{
+  font-size: 22px;
+}
+
+input{
+  width: 25vw;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  background: #F9DDB3;
+  color: #484F55;
+  font-size: 20px;
+  margin: 0 10px;
+  font-family: "montserrat",sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  
+}
+
+/* style the input placeholder */
+::placeholder {
+  padding: 0 10px;
+  color: #484F55;
+  opacity: 1; /* Firefox */
+}
+
+/* style the input text */
+input[type=text] {
+  padding: 0 10px;
+  color: #484F55;
+  font-size: 20px;
+  font-family: "montserrat",sans-serif;
+  font-weight: 500;
+}
+
+
+.community{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.circle{
+  height: 30vh;
+  width: 30vh;
+  border-radius: 50%;
+  background-color: none;
+  border:15px solid #F8AA36;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.breatheTimer img{
+  max-height: 30vh;
+  max-width: 30vh;
+}
+
+.stack p{
+  position: absolute;
+  top: 30%;
+  left:40%;
+  width: 5px;
+}
+
+.stack{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.breatheTimer button{
+  width: 20vw;
+}
+
+.sticky{
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+html{
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,115 @@
+body{
+    background-color: #efefef;
+    font-family: 'montserrat', sans-serif;
+    font-size: 17px;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+header {
+    background-color: #ECECF6;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    margin: 10px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.chatArea {
+    background-color: #efefef;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    margin: 0px 10px;
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+} 
+
+.chatArea{
+    background-color: #efefef;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 10px;
+    margin: 10px 10px;
+    display: flex;
+    align-items: center;
+  flex-direction: column;
+  }
+
+.senderBubble , .userBubble{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100vw;
+    margin: 10px 10px;
+    position: relative;
+    padding:30px 0;
+  }
+
+.senderBubble p{
+    background-color: #F8F9FA;
+    border-radius: 15px;
+    margin: 10px;
+    left: 0;
+    position: absolute;
+    max-width: 60%;
+    padding: 10px 10px ;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .userBubble p{
+    right: 10px;
+    position: absolute;
+    padding: 10px 10px ;
+    background-color: #F3D0BA;
+    border-radius: 15px;
+    margin: 10px;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.textFeild {
+  z-index: 4;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.textFeild input{
+  width: 100vw;
+  height: 50px;
+  border: none;
+  outline: none;
+  padding: 0 20px;
+  font-size: 17px;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 500;
+}
+.textFeild button{
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background-color: #ECECF6;
+  color: #000000;
+  font-size: 20px;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.fa{
+  font-size: small;
+}
