@@ -161,3 +161,7 @@
     
     font-size: small;
   }
+
+  .menu_wrapper{
+    cursor: pointer;
+  }
