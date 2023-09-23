@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
 </head>
 <body>
+    <div id="notes-container"></div>
     <div class="full_body">
         <div class="left_column">
             
@@ -118,9 +120,7 @@
                     </div>
                 </div>
                 <div class="menu_wrapper">
-                    <div class="menu"></div>
-                    <div class="menu"></div>
-                    <div class="menu"></div>
+                    <img src="sticky-notes.png" alt="" class="sticky_noete" onclick="createNote()">        
                 </div>
                 
             </div>
@@ -128,7 +128,7 @@
                 <div class="chat_screen">
                     <div class="main_chat_wrapper">
                         <div class="main_chat">
-                            
+
                         </div>
                     </div>
                     <div class="type_text_wrapper">
@@ -143,6 +143,25 @@
             </div>
         </div>
     </div>
-    <script src="psych_chat.js"></script>
+    
+
+    <script>
+        let noteCounter = 0;
+
+        function createNote() {
+            noteCounter++;
+            const notesContainer = document.getElementById('notes-container');
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.innerHTML = `<textarea placeholder="Write your note here"></textarea>
+                              <button onclick="deleteNote(this)">Delete</button>`;
+            notesContainer.appendChild(note);
+        }
+
+        function deleteNote(button) {
+            const note = button.parentElement;
+            note.parentElement.removeChild(note);
+        }
+    </script>
 </body>
 </html>
