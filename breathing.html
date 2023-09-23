@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BREATHING APP</title>
     <link rel="stylesheet" href="breathing.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    <div class="timer"></div>
-    <p id="breathe"></p>
-    
-    <audio controls loop>
-        <source src="Signs-of-Life_chosic.com_.ogg" type="audio/ogg" id="song">
-    </audio>
-    <script src="breathing.js"></script>
+    <nav class="sticky">
+        <ul class="nav-links">
+            <li><a href="#session">Session</a></li>
+            <li><a href="#music">Feel Good Music</a></li>
+            <li><a href="#journal">Journal</a></li>
+            <li><a href="#timer">Breathe Timer</a></li>
+            <li><a href="#community">Community</a></li>
+            <a href=""><i class="fa-regular fa-user"></i></a>
+        </ul>
+    </nav>
+
+    <section>
+        <h1>Breathe</h1>
+        <audio controls loop src="Signs-of-Life_chosic.com_.ogg" type="audio/ogg" id="song"></audio>
+        <div class="timer" />
+    </section>
+    <script src="breathing.js" defer></script>
 </body>
+
 </html>
