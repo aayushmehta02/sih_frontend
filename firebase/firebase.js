@@ -167,7 +167,8 @@ function readChatRoomData(userUid) {
 
 function addMessageToRoom(userUid, docUid, message) {
   const db = getDatabase();
-  push(ref(db, 'chatRooms/' + userUid + '-' + docUid + '/messages'), {
+  const user = JSON.parse(window.localStorage.getItem('uid'));
+  push(ref(db, 'chatRooms/' + user.chatId + '/messages'), {
     message: message,
     senderId: user.uid,
     timeStampe: new Date().getTime(),
