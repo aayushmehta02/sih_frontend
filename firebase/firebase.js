@@ -24,10 +24,6 @@ var selectedUserType = '';
 var doctors = [];
 var users = [];
 
-// const genderSelect = document.getElementById('gender');
-// const userSelect = document.getElementById('userType');
-
-const createRoom = document.getElementById('createRoom');
 
 
 function registerUser(email, password, name, gender, userType) {
@@ -157,7 +153,6 @@ async function createChatRoom(userUid, docUid) {
     docUid: docUid,
     userUid: userUid,
   });
-  // window.location.href = './userChat.html';
 }
 
 // write a function to contnuously read data from realtime database
