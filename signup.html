@@ -16,6 +16,12 @@
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+
 </head>
 
 <body>
@@ -28,15 +34,19 @@
         <input placeholder="Username" type="text" id="username" name="username"><br><br>
         <!--  -->
         <div class="sliderSwitches">
-          <label class="switch btn-color-mode-switch">
-            <input type="checkbox" name="gender_mode" id="gender_mode" value="1">
-            <label for="gender_mode" data-on="Male" data-off="Female" class="btn-color-mode-switch-inner"></label>
-          </label><br>
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select><br>
           <span></span>
-          <label class="switch btn-color-mode-switch">
-            <input type="checkbox" name="user_mode" id="user_mode" value="1">
-            <label for="user_mode" data-on="Patient" data-off="Doctor" class="btn-color-mode-switch-inner"></label>
-          </label><br>
+          <label for="userType">User Type:</label>
+          <select id="userType" name="gender">
+            <option value="Psychiatrist">Psychiatrist</option>
+            <option value="user">User</option>
+          </select><br>
+
         </div>
         <br>
         <div class="pass"> <input placeholder="Password" type="password" id="password" name="password" class="password">
@@ -44,7 +54,7 @@
         </div> <br>
         <input placeholder="Confirm Password" type="text" id="confirmPassword" name="confirmPassword"><br><br>
       </form>
-      <button class="btn" type="submit">Sign Up</button>
+      <button class="btn" type="submit" id="register">Sign Up</button>
       <p>Already have an account? <a href="login.html">Login</a></p>
     </div>
     <div class="loginOption">
@@ -56,6 +66,8 @@
     <img class="brain" src="assets/images/brain.jpg" alt="">
   </div>
   <script src="passwrodshow.js"></script>
+  <script type="module" src="firebase/firebase.js" defer></script>
+
 
 </body>
 
